@@ -4,6 +4,16 @@ HikariCode is a desktop-first, local-first AI coding agent. This public reposito
 
 HikariCode 是一个桌面优先、本地执行、对话驱动的 AI 编程 Agent。这个公开仓库是产品的公开发布主页，只保存版本说明、截图、更新清单和桌面安装包，私有业务源码仍在内部仓库维护。
 
+## Maintenance / 维护
+
+- This repository is the public distribution target for HikariCode.
+- Most files here are generated or refreshed by publish scripts from the private source repository.
+- This repository does not handle deployment; maintainers only update public assets, then commit and push.
+
+- 这个仓库是 HikariCode 的公开发布落点。
+- 这里的大部分文件由外层私有源码仓库的发布脚本生成或刷新。
+- 这里不承担部署，只做公开资产维护，然后提交并推送。
+
 ## Downloads / 下载
 
 - Latest release / 最新版本: [v0.1.0](https://github.com/hikariCodeAi/HikariCode/releases/tag/v0.1.0)
