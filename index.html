@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HikariCode</title>
+    <link rel="icon" type="image/png" href="assets/brand/hikaricode-favicon-64.png" />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f1e8;
+        --surface: rgba(255, 255, 255, 0.76);
+        --surface-strong: rgba(255, 255, 255, 0.92);
+        --ink: #142320;
+        --muted: #43615b;
+        --line: rgba(20, 35, 32, 0.12);
+        --accent: #0a7a64;
+        --accent-strong: #065948;
+        --radius-sm: 5px;
+        --radius-md: 12px;
+        --radius-pill: 999px;
+        --shadow: 0 24px 60px rgba(20, 35, 32, 0.12);
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "SF Pro Display", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top, rgba(10, 122, 100, 0.18), transparent 34%),
+          linear-gradient(180deg, #f8f7f1 0%, var(--bg) 100%);
+      }
+
+      a { color: inherit; }
+
+      .page {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 32px 0 56px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        background: var(--surface-strong);
+        box-shadow: var(--shadow);
+      }
+
+      .hero img.wordmark {
+        width: min(360px, 100%);
+        display: block;
+        margin-bottom: 20px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: var(--radius-pill);
+        background: rgba(10, 122, 100, 0.1);
+        color: var(--accent-strong);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      h1, h2, p { margin: 0; }
+      h1 {
+        font-size: clamp(36px, 5vw, 56px);
+        line-height: 1.02;
+        margin: 18px 0 14px;
+      }
+
+      .lead {
+        font-size: 17px;
+        line-height: 1.7;
+        color: var(--muted);
+        max-width: 58ch;
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-weight: 700;
+        border: 1px solid transparent;
+      }
+
+      .button.primary {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--accent-strong);
+        border-color: rgba(10, 122, 100, 0.26);
+      }
+
+      .hero-card {
+        padding: 20px;
+        border-radius: var(--radius-md);
+        background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(247,245,238,0.94));
+        border: 1px solid var(--line);
+      }
+
+      .hero-card img {
+        width: 100%;
+        border-radius: var(--radius-md);
+        display: block;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+        margin-top: 24px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .panel {
+        padding: 22px;
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .panel p {
+        margin-top: 12px;
+        line-height: 1.65;
+        color: var(--muted);
+      }
+
+      .shots {
+        display: grid;
+        gap: 18px;
+        margin-top: 32px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .shot {
+        overflow: hidden;
+        border-radius: var(--radius-md);
+        background: var(--surface-strong);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .shot img {
+        width: 100%;
+        display: block;
+      }
+
+      .shot strong {
+        display: block;
+        padding: 16px 18px 6px;
+        font-size: 16px;
+      }
+
+      .shot span {
+        display: block;
+        padding: 0 18px 18px;
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 14px;
+      }
+
+      .footer {
+        margin-top: 28px;
+        padding: 20px 0 8px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 920px) {
+        .hero,
+        .grid,
+        .shots {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Public release repo · v0.1.0</span>
+          <img class="wordmark" src="assets/brand/hikaricode-wordmark.png" alt="HikariCode" />
+          <h1>Desktop-first AI coding, distributed as packaged builds.</h1>
+          <p class="lead">
+            HikariCode ships as a local desktop agent for coding workflows. This repository is the public release home:
+            it provides installers, update metadata, screenshots, and bilingual product notes without publishing the
+            private product source tree.
+          </p>
+          <p class="lead" style="margin-top: 14px;">
+            HikariCode 是一个桌面优先、本地执行的 AI 编程 Agent。这个仓库只承担公开发布职责，提供安装包、
+            更新清单、截图和中英双语说明，不公开私有产品源码。
+          </p>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/hikariCodeAi/HikariCode/releases/tag/v0.1.0">Download / 下载</a>
+            <a class="button secondary" href="https://github.com/hikariCodeAi/HikariCode/blob/main/release-notes/v0.1.0.md">Release notes / 版本说明</a>
+            <a class="button secondary" href="https://hikariCodeAi.github.io/HikariCode/update/latest.json">Update manifest</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="assets/screenshots/desktop-overview.png" alt="HikariCode desktop overview" />
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <h2>What is public</h2>
+          <p>GitHub Releases installers, screenshots, update metadata, and release notes intended for public distribution.</p>
+        </article>
+        <article class="panel">
+          <h2>What stays private</h2>
+          <p>Business source code, internal implementation files, and private build orchestration remain in the internal repo.</p>
+        </article>
+        <article class="panel">
+          <h2>How updates work</h2>
+          <p>The packaged app reads <code>update/latest.json</code> by default and opens the GitHub Release page when a newer version is available.</p>
+        </article>
+      </section>
+
+      <section class="shots">
+        <article class="shot">
+          <img src="assets/screenshots/desktop-overview.png" alt="Desktop overview" />
+          <strong>Desktop overview</strong>
+          <span>Main shell layout for session flow, tools, and runtime diagnostics.</span>
+        </article>
+        <article class="shot">
+          <img src="assets/screenshots/model-settings.png" alt="Model settings" />
+          <strong>Model settings</strong>
+          <span>Provider and model configuration experience used inside the desktop app.</span>
+        </article>
+        <article class="shot">
+          <img src="assets/screenshots/brand-board.png" alt="Brand board" />
+          <strong>Brand board</strong>
+          <span>Brand system snapshot reused for the public release presentation assets.</span>
+        </article>
+      </section>
+
+      <div class="footer">
+        Public repository: <a href="https://github.com/hikariCodeAi/HikariCode">hikariCodeAi/HikariCode</a>
+      </div>
+    </main>
+  </body>
+</html>

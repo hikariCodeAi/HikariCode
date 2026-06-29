@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "notes_url": "https://github.com/hikariCodeAi/HikariCode/blob/main/release-notes/v0.1.0.md",
+  "download_url": "https://github.com/hikariCodeAi/HikariCode/releases/tag/v0.1.0",
+  "required": false,
+  "downloads": {
+    "darwin-arm64": {
+      "url": "https://github.com/hikariCodeAi/HikariCode/releases/download/v0.1.0/HikariCode-0.1.0-darwin-arm64.dmg"
+    }
+  }
+}
